@@ -30,71 +30,15 @@
         <button id="search-btn" class="input btn mx-1 h-10" @click="onSearchClick">
             <div class="i-fa6-solid:magnifying-glass"></div>
         </button>
-        <!-- three vertical lines for toggling the hamburger menu on mobile -->
-        <button class="mr-3 flex flex-col justify-end md:hidden" @click="showTopNav = !showTopNav">
-            <span class="line"></span>
-            <span class="line"></span>
-            <span class="line"></span>
-        </button>
-        <!-- navigation bar for large screen devices -->
-        <ul class="md:text-1xl hidden list-none md:(flex flex flex-1 justify-end children:pl-3)">
-            <li v-if="shouldShowTrending">
-                <router-link v-t="'titles.trending'" to="/trending" class="nav-link" />
-            </li>
+        <!-- navigation bar visible on all screen sizes -->
+        <ul class="md:text-1xl list-none flex flex-1 justify-end children:pl-3">
             <li>
-                <router-link v-t="'titles.preferences'" to="/preferences" class="nav-link" />
-            </li>
-            <li v-if="shouldShowLogin">
-                <router-link v-t="'titles.login'" to="/login" class="nav-link" />
-            </li>
-            <li v-if="shouldShowRegister">
-                <router-link v-t="'titles.register'" to="/register" class="nav-link" />
-            </li>
-            <li v-if="shouldShowHistory">
-                <router-link v-t="'titles.history'" to="/history" class="nav-link" />
-            </li>
-            <li>
-                <router-link v-t="'titles.playlists'" to="/playlists" class="nav-link" />
-            </li>
-            <li v-if="!shouldShowTrending">
-                <router-link v-t="'titles.feed'" to="/feed" class="nav-link" />
+                <a href="https://xhslink.com/o/QMeYFScfKu" target="_blank" rel="noopener noreferrer" class="nav-link"
+                    >iOS Android Download</a
+                >
             </li>
         </ul>
     </nav>
-    <!-- navigation bar for mobile devices -->
-    <div
-        v-if="showTopNav"
-        class="mobile-nav mb-4 flex flex-col children:(w-full flex items-center gap-1 border-b border-dark-100 p-1)"
-    >
-        <router-link v-if="shouldShowTrending" to="/trending">
-            <div class="i-fa6-solid:fire"></div>
-            <i18n-t keypath="titles.trending"></i18n-t>
-        </router-link>
-        <router-link to="/preferences">
-            <div class="i-fa6-solid:gear"></div>
-            <i18n-t keypath="titles.preferences"></i18n-t>
-        </router-link>
-        <router-link v-if="shouldShowLogin" to="/login">
-            <div class="i-fa6-solid:user"></div>
-            <i18n-t keypath="titles.login"></i18n-t>
-        </router-link>
-        <router-link v-if="shouldShowLogin" to="/register">
-            <div class="i-fa6-solid:user-plus"></div>
-            <i18n-t keypath="titles.register"></i18n-t>
-        </router-link>
-        <router-link v-if="shouldShowHistory" to="/history">
-            <div class="i-fa6-solid:clock-rotate-left"></div>
-            <i18n-t keypath="titles.history"></i18n-t>
-        </router-link>
-        <router-link to="/playlists">
-            <div class="i-fa6-solid:list"></div>
-            <i18n-t keypath="titles.playlists"></i18n-t>
-        </router-link>
-        <router-link v-if="!shouldShowTrending" to="/feed">
-            <div class="i-fa6-solid:play"></div>
-            <i18n-t keypath="titles.feed"></i18n-t>
-        </router-link>
-    </div>
     <!-- search suggestions for mobile devices -->
     <div class="search-container mb-2 w-full md:hidden">
         <input
@@ -130,7 +74,6 @@ export default {
         return {
             searchText: "",
             suggestionsVisible: false,
-            showTopNav: false,
             homePagePath: import.meta.env.BASE_URL,
             registrationDisabled: false,
         };
